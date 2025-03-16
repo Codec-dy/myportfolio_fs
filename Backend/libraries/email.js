@@ -19,7 +19,7 @@ class Email{
                 clientId: process.env.CLIENT_ID,
                 clientSecret: process.env.CLIENT_SECRET,
                 refreshToken: process.env.REFRESH_TOKEN,
-                accessToken: "ya29.a0AeXRPp5JO3mGEYCvcA4XfSRczcQuYSBF2OK4w7kdQ0O20ehTkqLTDgiRXZ3nTfIHFgBVHQ3IXv95TzhF5Ls0kET8ZUv16MJVc8YN_Vzn8WrgPNuFg_gbQRGw19HhiPVt_qgmaukMJHCb3cwYQKbI-HcjywMtO8qgHj52QkCBaCgYKAZESARMSFQHGX2Miik8PrOGM2mjHfWUpA-bivg0175"
+                accessToken: ""
             }
         });
     }
