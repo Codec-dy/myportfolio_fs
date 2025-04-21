@@ -62,6 +62,7 @@ class Database {
             category: String,
             link: String,
             date: String,
+            status: String,
         });
     }
     projectModel() {
@@ -125,8 +126,8 @@ class Database {
     
 
     //CRUD Operations
-    getAll(model){
-        return model.find();
+    getAll(model,query){
+        return model.find(query);
     }
     findOne(model,query){
         return model.findOne(query);

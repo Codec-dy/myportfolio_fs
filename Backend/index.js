@@ -83,10 +83,11 @@ app.post('/admin/dashboard', (req, res) => {
 app.use(cors());
 app.use(express.json());
 app.get('/api/collection',async(req,res)=>{
-    const {model,getAll,id} = req.query
+    const {model,getAll,id,status} = req.query
+    const query = status?{status:status}:{}
     try{
         if(getAll){
-            const data =  await database.getAll(libraries.getModel(model,database))
+            const data =  await database.getAll(libraries.getModel(model,database),query)
             return res.send(data);
         }else if(!getAll){
             const data = await database.findOne(libraries.getModel(model,database),{_id:id})
@@ -111,12 +112,11 @@ app.post('/api/collection',upload.single('img'), async (req, res,) => {
     const {model} = req.query
     let newExperience = req.body;
     const file = req.file
-    console.log("file", model)
+    
     try{   
         if(file || model=='certificates'){
                 newExperience.img = model!='certificates'?file.path : "https://res.cloudinary.com/dg7cu9i7u/image/upload/v1742112479/image_uploads/jwt830zu20qtsygeo881.png"
                 newExperience.link = model=='certificates'?file.path:''
-                console.log("newEx", libraries.getModel(model,database))
                 database.addInstance(libraries.getModel(model,database), newExperience);
                 res.send('Experience added successfully');
                 }    
