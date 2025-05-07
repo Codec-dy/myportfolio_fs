@@ -40,6 +40,11 @@ app.post('/api/sendmessageapi', (req, res) => {
     
 });
 
+app.use(cors());
+app.use(express.json());
+app.post('/', async (req, res) => {
+  res.send("live")
+});
 
 //Logining in as an admin
 app.use(cors());
@@ -211,5 +216,5 @@ app.post('/api/upload', async (req, res) => {
   
 
 app.listen(libraries.port, () => {
-    console.log(`Example app listening at http://localhost:${libraries.port}`);
+    console.log(`Server is running on port`);
 });
